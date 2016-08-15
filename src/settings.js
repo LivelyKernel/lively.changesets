@@ -18,7 +18,7 @@ export function getGitHubToken() { // -> string
   return window.localStorage.getItem(TOKEN_KEY) || "<secret>";
 }
 
-export async function getOrAskGitHubToken() {
+export async function getOrAskGitHubToken() { // -> string
   let token = getGitHubToken();
   if (token !== '<secret>') return token;
   token = await $world.prompt("Please enter your Personal Access Token for interacting with GitHub", {
